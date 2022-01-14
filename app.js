@@ -10,12 +10,37 @@ const server = http.createServer((req, res)=>{
         "Access-Control-Allow-Mthods" :"GET, POST, PUT, DELETE"
     };
 
-const todosFile = fs.readFileSync('./data/todos.json');
-const todos = JSON.parse(todosFile)
-console.log(todos);
+    const todosBuffer = fs.readFileSync('./data/todos.json');
+    const todos = JSON.parse(todosBuffer)
 
- res.writeHead (200, header);
- res.end(JSON.stringify(todos));
+    switch (req.method) {
+        case "GET":
+           
+            res.writeHead (200, header);
+            res.end(JSON.stringify(todos));
+            break;
+
+        case "POST":
+           
+        req.on("data", (chunk) => {
+           const newTodo = JSON.parse(chunk); 
+           
+           todos.push(newTodo)
+           
+           fs.writeFileSync('./data/todos.json', JSON.stringify(todos))
+        });
+
+        res.writeHead(201, header)
+        res.end("Todo berhasil ditambahkan")
+    
+        default:
+            break;
+    }
+
+
+
+
+
 
 });
 
