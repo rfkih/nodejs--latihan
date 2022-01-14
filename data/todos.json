@@ -1,1 +1,3 @@
-[{"id":1,"action":"Exercisfde"},{"id":2,"action":"Exercasdfise"},{"id":3,"action":"Sleep"},{"id":4,"action":"Wake Up"},{"id":5,"action":"Breakfast"}]
+[{"id":1,"action":"Exercisfde","isDone": false},
+    {"id":2,"action":"Exercasdfise","isDone": false}
+    ]

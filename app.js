@@ -1,6 +1,7 @@
 const http = require("http");
 const port = 2022;
-const fs = require("fs")
+const fs = require("fs");
+const url = require("url");
 
 const server = http.createServer((req, res)=>{
 
@@ -26,12 +27,17 @@ const server = http.createServer((req, res)=>{
            const newTodo = JSON.parse(chunk); 
            
            todos.push(newTodo)
-           
-           fs.writeFileSync('./data/todos.json', JSON.stringify(todos))
-        });
+
+            const newTodosString = JSON.stringify(todos);
+           fs.writeFileSync('./data/todos.json', newTodosString)
+        }).on("end", ()=>{
 
         res.writeHead(201, header)
         res.end("Todo berhasil ditambahkan")
+
+        });
+
+        
     
         default:
             break;
