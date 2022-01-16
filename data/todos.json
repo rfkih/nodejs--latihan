@@ -1,3 +1,1 @@
-[{"id":1,"action":"Exercisfde","isDone": false},
-    {"id":2,"action":"Exercasdfise","isDone": false}
-    ]
+[{"id":2,"action":"Exercasdfise","isDone":true},{"id":3,"action":"biceps","isDone":false},{"id":4,"action":"tidur","isDone":false}]
