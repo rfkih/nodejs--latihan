@@ -37,10 +37,12 @@ const server = http.createServer((req, res)=>{
 
         });
 
+        case "PUT" :
+            const query = url.parse(req.url, true).query;
+            console.log(query)
         
     
-        default:
-            break;
+       
     }
 
 
